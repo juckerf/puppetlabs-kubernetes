@@ -253,6 +253,15 @@ class kubernetes (
   $sa_pub = $kubernetes::params::sa_pub,
   $cni_network_provider = $kubernetes::params::cni_network_provider,
   $install_dashboard = $kubernetes::params::install_dashboard,
+  $oidc = $kubernetes::params::oidc,
+  $oidc_issuer_url = $kubernetes::params::oidc_issuer_url,
+  $oidc_client_id = $kubernetes::params::oidc_client_id,
+  $oidc_username_claim = $kubernetes::params::oidc_username_claim,
+  $oidc_username_prefix = $kubernetes::params::oidc_username_prefix,
+  $oidc_groups_claim = $kubernetes::params::oidc_groups_claim,
+  $oidc_groups_prefix = $kubernetes::params::oidc_groups_prefix,
+  $oidc_ca_file = $kubernetes::params::oidc_ca_file
+
 
   )  inherits kubernetes::params {
 
