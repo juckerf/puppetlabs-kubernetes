@@ -35,6 +35,15 @@ spec:
     <% if @kubernetes_version =~ /1[.](6|7)[.]\d/ -%>- --authorization-mode=RBAC<% end %>
     - --advertise-address=<%= @kube_api_advertise_address  %>
     - --etcd-servers=http://127.0.0.1:2379
+    <% if @oidc -%> 
+    - --oidc-issuer-url=<%= @oidc_issuer_url %>
+    - --oidc-client-id=<%= @oidc_client_id%>
+    <% if not @oidc_username_claim.nil? -%>- --oidc-username-claim=<%= @oidc_username_claim %><% end %>
+    <% if not @oidc_username_prefix.nil? -%>- --oidc-username-prefix=<%= @oidc_username_prefix %><% end %>
+    <% if not @oidc_groups_claim.nil? -%>- --oidc-groups-claim=<%= @oidc_groups_claim %><% end %>
+    <% if not @oidc_groups_prefix.nil? -%>- --oidc-groups-prefix=<%= @oidc_groups_prefix %><% end %>
+    <% if not @oidc_ca_file.nil? -%>- --oidc-ca-file=<%= @oidc_ca_file %><% end %>
+    <% end %>
     image: gcr.io/google_containers/kube-apiserver-amd64:v<%= @kubernetes_version  %>
     livenessProbe:
       failureThreshold: 8
