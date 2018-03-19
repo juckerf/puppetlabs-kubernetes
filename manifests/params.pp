@@ -59,5 +59,13 @@ $sa_key = undef
 $sa_pub = undef
 $cni_network_provider = 'https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d "\n")\&env.IPALLOC_RANGE=100.32.0.0/12'
 $install_dashboard = false
+$oidc = false
+$oidc_issuer_url = undef
+$oidc_client_id = undef
+$oidc_username_claim = undef
+$oidc_username_prefix = undef
+$oidc_groups_claim = undef
+$oidc_groups_prefix = undef
+$oidc_ca_file = undef
 
 }
