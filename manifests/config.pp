@@ -43,6 +43,8 @@ class kubernetes::config (
   $front_proxy_ca_key = $kubernetes::front_proxy_ca_key,
   $front_proxy_client_crt = $kubernetes::front_proxy_client_crt,
   $front_proxy_client_key = $kubernetes::front_proxy_client_key,
+  $aggregator_crt = $kubernetes::aggregator_crt,
+  $aggregator_key = $kubernetes::aggregator_key,
   $sa_key = $kubernetes::sa_key,
   $sa_pub = $kubernetes::sa_pub,
 
@@ -54,8 +56,8 @@ class kubernetes::config (
   $kube_etc_files = ['admin.conf', 'controller-manager.conf', 'kubelet.conf', 'scheduler.conf'] # lint:ignore:140chars
   $kube_manifest_files = ['etcd.yaml', 'kube-apiserver.yaml', 'kube-controller-manager.yaml', 'kube-scheduler.yaml', 'clusterRoleBinding.yaml'] # lint:ignore:140chars
   $kube_addons_files = ['kube-dns-sa.yaml','kube-dns-deployment.yaml', 'kube-dns-service.yaml', 'kube-proxy-sa.yaml', 'kube-proxy-daemonset.yaml', 'kube-proxy.yaml'] # lint:ignore:140chars
-  $kube_pki_files = ['apiserver.crt', 'apiserver-kubelet-client.crt', 'ca.crt', 'front-proxy-ca.crt', 'front-proxy-client.crt', 'sa.key',
-                    'apiserver.key',  'apiserver-kubelet-client.key', 'ca.key', 'front-proxy-ca.key', 'front-proxy-client.key', 'sa.pub'] # lint:ignore:140chars
+  $kube_pki_files = ['apiserver.crt', 'apiserver-kubelet-client.crt', 'ca.crt', 'front-proxy-ca.crt', 'front-proxy-client.crt', 'sa.key', 'aggregator.crt',
+                    'apiserver.key',  'apiserver-kubelet-client.key', 'ca.key', 'front-proxy-ca.key', 'front-proxy-client.key', 'sa.pub', 'aggregator.key'] # lint:ignore:140chars
   }
 
   if $worker {

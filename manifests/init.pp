@@ -244,6 +244,8 @@ class kubernetes (
   $front_proxy_ca_key = $kubernetes::params::front_proxy_ca_key,
   $front_proxy_client_crt = $kubernetes::params::front_proxy_client_crt,
   $front_proxy_client_key = $kubernetes::params::front_proxy_client_key,
+  $aggregator_crt = $kubernetes::aggregator_crt,
+  $aggregator_key = $kubernetes::aggregator_key,
   $sa_key = $kubernetes::params::sa_key,
   $sa_pub = $kubernetes::params::sa_pub,
   $cni_network_provider = $kubernetes::params::cni_network_provider,
@@ -256,8 +258,6 @@ class kubernetes (
   $oidc_groups_claim = $kubernetes::params::oidc_groups_claim,
   $oidc_groups_prefix = $kubernetes::params::oidc_groups_prefix,
   $oidc_ca_file = $kubernetes::params::oidc_ca_file
-
-
   )  inherits kubernetes::params {
 
   validate_bool($controller)
