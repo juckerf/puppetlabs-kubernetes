@@ -258,7 +258,6 @@ class kubernetes (
   $oidc_groups_claim = $kubernetes::params::oidc_groups_claim,
   $oidc_groups_prefix = $kubernetes::params::oidc_groups_prefix,
   $oidc_ca_file = $kubernetes::params::oidc_ca_file
-
   )  inherits kubernetes::params {
 
   validate_bool($controller)
